@@ -1,0 +1,2 @@
+module FromHyrax::FromHyraxHelper
+end

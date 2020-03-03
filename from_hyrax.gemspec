@@ -1,38 +1,24 @@
+$:.push File.expand_path("../lib", __FILE__)
 
-lib = File.expand_path("../lib", __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+# Maintain your gem's version:
 require "from_hyrax/version"
 
-Gem::Specification.new do |spec|
-  spec.name          = "from_hyrax"
-  spec.version       = FromHyrax::VERSION
-  spec.authors       = ["sephirothkod"]
-  spec.email         = ["bjustice@uvic.ca"]
+# Describe your gem and declare its dependencies:
+Gem::Specification.new do |s|
+  s.name        = "from_hyrax"
+  s.version     = FromHyrax::VERSION
+  s.authors     = ["sephirothkod"]
+  s.email       = ["bjustice@uvic.ca"]
+  s.homepage    = "https://github.com/UVicLibrary/hyrax_from"
+  s.summary     = "Spotlight plugin gem to pull data from Hyrax, must use in conjuction with to_spotlight gem"
+  s.description = "Spotlight plugin gem to pull data from Hyrax, must use in conjuction with to_spotlight gem"
+  s.license     = "MIT"
 
-  spec.summary       = "Spotlight plugin gem to pull data from Hyrax"
-  spec.description   = "Spotlight plugin gem to pull data from Hyrax"
-  spec.homepage      = "https://github.com/uviclibrary/from_hyrax"
-  spec.license       = "MIT"
+  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
-  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
-  # to allow pushing to a single host or delete this section to allow pushing to any host.
-  if spec.respond_to?(:metadata)
-    spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against " \
-      "public gem pushes."
-  end
+  s.add_dependency "rails", "~> 5.0"
 
-  # Specify which files should be added to the gem when it is released.
-  # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
-  spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
-    `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
-  end
-  spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  spec.require_paths = ["lib"]
-
-  spec.add_development_dependency "bundler"
-  spec.add_development_dependency "rake"
-  spec.add_development_dependency "minitest"
+  #s.add_development_dependency "engine_cart", '~> 1.1'
+  s.add_development_dependency "therubyracer"
+  s.add_development_dependency "rspec-rails"
 end

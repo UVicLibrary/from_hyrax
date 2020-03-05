@@ -1,0 +1,7 @@
+<h1>FromHyrax::FromHyrax#index</h1>
+<p>Find me in app/views/from_hyrax/from_hyrax/index.html.erb</p>
+
+<%= form_tag from_hyrax.new_path do %>
+  <%= select_tag "repo", options_for_select(@instances) %>
+  <%= submit_tag 'start mapping'%>
+<% end %>
